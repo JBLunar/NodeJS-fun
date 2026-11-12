@@ -1,0 +1,31 @@
+{
+  "name": "nodejs-fun",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+
+  },
+  "repository": {
+    "type": "module",
+    "url": "git+https://github.com/JBLunar/NodeJS-fun.git"
+  },
+  "author": "Kristian Nielsen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JBLunar/NodeJS-fun/issues"
+  },
+  "homepage": "https://github.com/JBLunar/NodeJS-fun#readme",
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.3.0"
+  }
+}
