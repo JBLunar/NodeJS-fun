@@ -1,0 +1,52 @@
+{
+  "games": [
+    {
+      "id": 1,
+      "title": "Counter-Strike 2",
+      "genre": "Shooter",
+      "releaseYear": 2023,
+      "multiplayer": true,
+      "rating": 8.5
+    },
+    {
+      "id": 2,
+      "title": "Among Us",
+      "genre": "Social deduction",
+      "releaseYear": 2018,
+      "multiplayer": true,
+      "rating": 7.8
+    },
+    {
+      "id": 3,
+      "title": "Minecraft",
+      "genre": "Sandbox",
+      "releaseYear": 2011,
+      "multiplayer": true,
+      "rating": 9.2
+    },
+    {
+      "id": 4,
+      "title": "Hollow Knight",
+      "genre": "Metroidvania",
+      "releaseYear": 2017,
+      "multiplayer": false,
+      "rating": 9.0
+    },
+    {
+      "id": 5,
+      "title": "Rocket League",
+      "genre": "Sports",
+      "releaseYear": 2015,
+      "multiplayer": true,
+      "rating": 8.3
+    },
+    {
+      "id": 6,
+      "title": "Stardew Valley",
+      "genre": "Farming sim",
+      "releaseYear": 2016,
+      "multiplayer": true,
+      "rating": 9.1
+    }
+  ]
+}
