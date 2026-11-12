@@ -13,3 +13,12 @@ const server = http_1.default.createServer((request, response) => {
 server.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
+
+
+
+    try {
+        const data = JSON.parse(jsonstring);
+        console.log(data)
+    } catch (error) {
+        console.log("error in passing", error)
+    };
