@@ -1,1 +1,6 @@
 node_modules
+.env
+# SQLite-databasen – den er lokal for hver udvikler
+dev.db
+# Prisma Client genereres automatisk – skal ikke med på GitHub
+src/generated

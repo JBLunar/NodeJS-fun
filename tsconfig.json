@@ -1,5 +1,4 @@
 {
-
   "compilerOptions": {
     "target": "ES2020",
     "module": "nodenext",
@@ -8,6 +7,10 @@
     "outDir": "./dist",
     "strict": true,
     "esModuleInterop": true,
-    "types": ["node"],
-  }
+    "types": ["node"]
+  },
+  // Kun TypeScript-filer i src-mappen (og undermapper) skal kompileres
+  "include": ["src/**/*.ts"],
+  // Prisma's config-fil skal IKKE med i buildet
+  "exclude": ["prisma.config.ts"]
 }
