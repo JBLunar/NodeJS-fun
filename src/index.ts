@@ -1,4 +1,4 @@
-// Importerer Prisma Client – vores fælles forbindelse til databasen
+// Importerer Prisma Client
 import { prisma } from "./prisma.js";
 
 import dotenv from 'dotenv';
@@ -22,12 +22,10 @@ const app = express();
 // Tillad andre sider at hente data fra serveren – skal stå FØR routes
 app.use(cors());
 
-// GET-route der henter ALLE brugere fra databasen
+// GET-route til at hente brugere
 app.get("/users", async (req, res) => {
-  // findMany() = "find mange" – henter alle rækker fra users-tabellen
   const users = await prisma.user.findMany();
 
-  // Send brugerne tilbage som JSON
   res.json(users);
 });
 
