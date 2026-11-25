@@ -12,45 +12,52 @@ datasource db {
   provider = "sqlite"
 }
 
+// Fast liste over tilladte roller – kun ADMIN eller USER
+enum Role {
+  ADMIN
+  USER
+}
+
 // Model til brugere
 model User {
-  id        Int      @id @default(autoincrement()) // unikt nummer, tæller automatisk op
-  firstname String                                 // fornavn
-  lastname  String                                 // efternavn
-  phone     Int                                    // telefonnummer
-  email     String   @unique                       // email – må ikke findes to gange
-  password  String                                 // adgangskode
-  height    Float    @default(0.00)                // højde – 0.00 hvis ikke udfyldt
-  isActive  Boolean  @default(false)               // er brugeren aktiv? starter som nej
-  createdAt DateTime @default(now())               // oprettelsestidspunkt – sættes automatisk
+  id           Int      @id @default(autoincrement()) // primary key – tæller automatisk op
+  firstname    String                                 // fornavn
+  lastname     String                                 // efternavn
+  email        String   @unique                       // email – må ikke findes to gange
+  password     String                                 // adgangskode
+  role         Role     @default(USER)                // rolle – nye brugere bliver USER
+  refreshToken String?                                // valgfri (?) – bruges senere til login
+  zipcode      Int                                    // postnummer
+  birthdate    DateTime @default(now())               // fødselsdato
+  isActive     Boolean  @default(false)               // er brugeren aktiv? starter som nej
+  createdAt    DateTime @default(now())               // oprettelsestidspunkt – sættes automatisk
 
   // Tabellen skal hedde users i databasen
   @@map("users")
 }
 
-
-// Model til bilmærker
-model Brand {
-  id      Int    @id @default(autoincrement()) // primary key – unikt nummer
-  name    String                               // navn, f.eks. "Volvo"
-  logoUrl String                               // filnavn på logoet
-
-  // Et brand kan have mange biler (relationsfelt – findes kun i Prisma)
-  cars    Car[]
-
-  // Tabellen skal hedde brands i databasen
-  @@map("brands")
-}
-
 // Model til biler
 model Car {
-  id      Int    @id @default(autoincrement()) // primary key – unikt nummer
+  id      Int    @id @default(autoincrement()) // primary key
   model   String                               // bilmodel, f.eks. "XC40"
   brandId Int                                  // foreign key – peger på brands.id
 
-  // Forbinder bilen med ét brand (relationsfelt – findes kun i Prisma)
+  // Forbinder bilen med ét brand
   brand   Brand  @relation(fields: [brandId], references: [id])
 
   // Tabellen skal hedde cars i databasen
   @@map("cars")
+}
+
+// Model til bilmærker
+model Brand {
+  id    Int    @id @default(autoincrement()) // primary key
+  title String                               // navn på mærket, f.eks. "Volvo"
+  logo  String                               // filnavn på logoet
+
+  // Et brand kan have mange biler
+  cars  Car[]
+
+  // Tabellen skal hedde brands i databasen
+  @@map("brands")
 }
